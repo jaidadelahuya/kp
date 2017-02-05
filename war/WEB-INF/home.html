@@ -1,0 +1,85 @@
+
+
+<div class="center-div">
+	<div id="home-center-div">
+
+
+		<div class="row">
+			<div class="col s12">
+				<div class="card" style="margin-top: -20px">
+					<div class="card-image">
+						<img src="${welcomePage.backgroundImg}">
+						<div class="card-title"
+							style="width: 40%; height: 100%; padding-top: 7%; text-align: center; background-color: rgba(137, 155, 193, 0.5)">
+							<img class="profile-img" src="${welcomePage.profileImg}">
+							<div>
+								<div class="flow-text"
+									style="font-weight: bold; line-height: 1.5; color: #f4ebee">
+									<c:out value='${welcomePage.firstName}' />
+									<c:out value='${welcomePage.lastName}' />
+								</div>
+								<h6 style="color: #eef4eb">
+									<c:out value='${welcomePage.school}' />
+								</h6>
+								<h6>
+									<c:out value='${welcomePage.sClass}' />
+								</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row" id="discussion-cols">
+			<div class="col s12 m6">
+				<div class="card-panel ">
+					<div class="row valign-wrapper" style="margin-bottom: 0px">
+						<img class="circle" src="${welcomePage.profileImg}"
+							style="width: 45px; height: 45px; margin: 0px 10px"> <span><c:out
+								value='${welcomePage.firstName}' /> <c:out
+								value='${welcomePage.lastName}' /></span>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12" style="margin-bottom: 0px">
+							<a class="modal-trigger" href="#modal1">Write something or
+								ask a question</a>
+						</div>
+					</div>
+
+				</div>
+				<div id="f-col">
+					<c:forEach var="item" items="${welcomePage.posts}" step="2">
+						<%@ include file="/pages/partials/welcome-post.html"%>
+					</c:forEach>
+
+				</div>
+
+
+
+			</div>
+			<%@ include file="/pages/partials/cloneable-comment.html"%>
+			<div id="s-col" class="col s12 m6">
+
+				<c:forEach var="item" items="${welcomePage.posts}" step="2"
+					begin="1">
+					<%@ include file="/pages/partials/welcome-post.html"%>
+					<div style="clear: both"></div>
+				</c:forEach>
+
+
+
+
+			</div>
+		</div>
+
+		<div style="text-align: center">
+			<button id="more" class="ca-btn-primary">More</button>
+		</div>
+
+
+
+	</div>
+</div>

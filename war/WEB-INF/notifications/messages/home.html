@@ -1,0 +1,36 @@
+
+<div class="center-div">
+
+	<div id="home-center-div" class="center-main-content">
+
+		<ul class="collection with-header">
+			<li class="collection-header"><h4>Messages</h4></li>
+			<c:choose>
+				<c:when test="${empty imessagePage.notifications}">
+					<li class="collection-item avatar">No messages to display</li>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="item" items="${imessagePage.notifications}">
+						<li class="collection-item avatar"><input
+							value="${item.notificationKey}" type="hidden"
+							class="notification-key" /><a  href="<c:url value='/azure/notifications/messages?web-key=${item.id}' />"><img
+							src="${item.sender.picture}" alt="" class="circle"></a> <span
+							class="title"><a href="<c:url value='/azure/notifications/messages?web-key=${item.id}' />"><c:out value="${item.sender.name}" /> <span>(<c:out value='${fn:length(item.notifications)}' />)</span></a></span> 
+							<div style="height: 20px; overflow-y: hidden;margin-bottom: 1%; width: 75%;">
+								<span style="font-family: arial;"><c:out
+										escapeXml="false" value="${item.display}" /></span>
+							</div>
+							
+							</p> <a href="#!" class="secondary-content"><fmt:formatDate
+									dateStyle="full" pattern="E, d MMM" value="${item.date}" /><br />
+								<span style="font-family: calibri; font-size: 10pt"><fmt:formatDate
+										pattern="h:mm a" value="${item.date}" /></span></a></li>
+
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+
+		</ul>
+
+	</div>
+</div>

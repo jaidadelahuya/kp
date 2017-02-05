@@ -1,0 +1,83 @@
+<html>
+<head>
+<style type="text/css">
+.test-grad {
+  background: #f3f4f8; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, #f9f9fb, #f3f4f8, #ebeef4); /* Safari */
+  background: -o-radial-gradient(circle, #f9f9fb, #f3f4f8, #ebeef4); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle,#f9f9fb, #f3f4f8, #ebeef4); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle,#f9f9fb, #f3f4f8, #ebeef4); /* Standard syntax */
+}
+@media screen and (max-width: 992px) {
+	#gen-panel {
+		max-width: 400px;
+	}
+}
+</style>
+</head>
+<body class="test-grad">
+
+	<div class="container-fluid test-grad" id="c1">
+		<div class="row" style="width: 80%; margin: 0 auto">
+			<div class="col-xs-12 col-sm-12 col-md-5" id="gen-panel">
+				<div class="panel panel-default">
+					<div class="panel-body text-right">
+						<img class="img-circle img-responsive profile-img to-pointer"
+							style="width: 130px; height: 130px; float: left;"
+							id="profile-image" />
+						<h3 id="user-name" class="report-username"></h3>
+						<h4 style="color: #983b59" class="report-test-name">Talent
+							Hunt Test</h4>
+						<h6 style="color: #59983b" id="today" class="report-date"></h6>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="col-xs-12 col-sm-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading text-center ccpanelheader"
+							style="background-color: darkgreen; height: 2.5em;">
+							<span class="panel-title pan-title-font">Very Strong</span>
+						</div>
+						<ul class="list-group" id="very-strong-list"></ul>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading text-center ccpanelheader"
+							style="background-color: olive; height: 2.5em;">
+							<span class="panel-title pan-title-font">Strong</span>
+						</div>
+						<ul class="list-group" id="strong-list"></ul>
+					</div>
+
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading text-center ccpanelheader"
+							style="background-color: orange; height: 2.5em;">
+							<span class="panel-title pan-title-font">Fairly Strong</span>
+						</div>
+						<ul class="list-group" id="fairly-strong-list"></ul>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading text-center ccpanelheader"
+							style="background-color: red; height: 2.5em;">
+							<span class="panel-title pan-title-font">Weak</span>
+						</div>
+						<ul class="list-group" id="weak-list"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 hidden-sm hidden-md hidden-lg">
+				<button type="button"
+					class="btn btn-primary btn-sm save-button pull-right"
+					style="margin-right: 1em">
+					<span class="glyphicon glyphicon-save"></span><span> Save</span>
+				</button>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

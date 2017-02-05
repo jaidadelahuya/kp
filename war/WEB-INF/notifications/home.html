@@ -1,0 +1,67 @@
+<c:set var="request" value="FriendRequestNotification" />
+<c:set var="accepted" value="FriendRequestAcceptedNotification" />
+<c:set var="like" value="LikeNotification" />
+<div class="center-div">
+
+	<div id="home-center-div" class="center-main-content">
+
+		<ul class="collection with-header">
+			<li class="collection-header"><h4>Notifications</h4></li>
+			<c:choose>
+				<c:when test="${empty notificationPage.notifications}">
+					<li class="collection-item avatar">No notification to display</li>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="item" items="${notificationPage.notifications}">
+						<li class="collection-item avatar"><input type="hidden"
+							value="${item.sender.webKey}" class="sender-key"> <input
+							value="${item.notificationKey}" type="hidden"
+							class="notification-key" /> <input value="${item.id}"
+							type="hidden" class="notification-bean-key" /> <img
+							src="${item.sender.picture}" alt="" class="circle"> <span
+							class="title"><a><c:out value="${item.sender.name}" /></a></span>
+							<c:choose>
+								<c:when test='${item.type eq like}'>
+									<p style="margin-bottom: 1%; width: 75%">
+										<span style="font-family: calibri"> likes your <a
+											href="<c:url value='/azure/post/single/get?notification-key=${item.notificationKey}&bean=notification&webkey=${item.messageId}' />">post</a>
+										</span>
+									</p>
+								</c:when>
+								<c:otherwise>
+									<p style="margin-bottom: 1%; width: 75%">
+										<span style="font-family: calibri"><c:out
+												escapeXml="false" value="${item.display}" /></span>
+									</p>
+								</c:otherwise>
+							</c:choose> <c:choose>
+								<c:when test="${item.type eq request}">
+									<p>
+										<button class="ca-btn-primary accept-friend-request">Accept</button>
+										<button class="ca-btn-danger delete-notification">Decline</button>
+									</p>
+								</c:when>
+
+								<c:when test="${item.type eq accepted}">
+									<p>
+										<button class="ca-btn-primary reply-message">Send
+											Message</button>
+									</p>
+								</c:when>
+							</c:choose>
+
+
+
+							</p> <a href="#!" class="secondary-content"><fmt:formatDate
+									dateStyle="full" pattern="E, d MMM" value="${item.date}" /><br />
+								<span style="font-family: calibri; font-size: 10pt"><fmt:formatDate
+										pattern="h:mm a" value="${item.date}" /></span></a></li>
+
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+
+		</ul>
+
+	</div>
+</div>

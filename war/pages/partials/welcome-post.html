@@ -1,0 +1,77 @@
+<div class="row welcome-post">
+	<div class="card" style="padding-top: 20px">
+		<div class="row" style="margin-bottom: 10px;">
+			<img class="circle" src="${item.authorImage}"
+				style="width: 45px; height: 45px; margin: 0px 10px; margin-left: 30px; float: left">
+			<div style="padding: 1%;">
+				<span><c:out value='${item.author}' /></span><a
+					style="color: #59983b"
+					href="<c:url value='/azure/post/single/get?bean=welcome&webkey=${item.webkey}' />"><i
+					class="material-icons right">more_vert</i></a><br> <span class=""
+					style="font-style: italic; font-family: calibri; color: #983b59"><c:out
+						value='${item.postDate}' /></span>
+			</div>
+		</div>
+
+		<div class="card-content" style="padding-top: 0px">
+			<c:out value="${item.snippet}" />
+
+		</div>
+		<c:if test='${not empty item.pictureUrl}'>
+			<div class="card-image">
+				<img class="responsive-img materialboxed" src="${item.pictureUrl}">
+			</div>
+		</c:if>
+		<div class="card-action"
+			style="overflow: auto; background-color: #f4ebee">
+			<c:if test="${not empty item.link}">
+				<a class="source" target="_blank" href="${item.link}">Source</a>
+			</c:if>
+			<input class="h-input" value="${item.webkey}" type="hidden">
+
+			<i class="material-icons md-dark right post-icons comment">
+				comment</i><span class="right no-comments"><c:out
+					value='${item.comments}' /></span> <i
+				class="material-icons md-dark right post-icons like"> <c:choose>
+					<c:when test="${item.liked}">thumb_down</c:when>
+					<c:otherwise>thumb_up</c:otherwise>
+				</c:choose></i><span class="right no-likes"><c:out value='${item.likes}' /></span>
+		</div>
+		<div class="progress" style="display: none">
+			<div class="indeterminate"></div>
+		</div>
+		<div class="comment-div" style="display: none; overflow: auto;">
+			<div class="all-comments"
+				style="max-height: 300px; overflow-y: auto; border-top: 1px solid #dadada; border-bottom: 1px solid #dadada"></div>
+			<div class="new-comment">
+				<div class="row">
+					<div class="col s12">
+						<img alt="" src="${welcomePage.profileImg}"
+							style="height: 45px; width: 45px; margin: 2%; float: left"
+							class="image circle">
+						<div>
+							<h6
+								style="margin-bottom: 4px; margin-top: 25px; font-weight: bold;">
+								<span class="comment-author-name"><c:out
+										value='${welcomePage.firstName}' /> <c:out
+										value='${welcomePage.lastName}' /></span>
+							</h6>
+							<form>
+								<input type="hidden" value="${item.webkey}" name="web-key">
+								<textarea class="materialize-textarea comment-text" rows="1"
+									placeholder="Write a comment" name="comment"
+									style="margin: 0px; padding: 0px; border-bottom: none;"></textarea>
+							</form>
+						</div>
+						<div style="margin-bottom: 10px">
+							<span class="right post-comment"
+								style="font-weight: bold; cursor: pointer;">POST</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
